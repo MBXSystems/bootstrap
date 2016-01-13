@@ -58,7 +58,7 @@ angular.module('ui.bootstrap.position', [])
         return {
           width: boundingClientRect.width || element.prop('offsetWidth'),
           height: boundingClientRect.height || element.prop('offsetHeight'),
-          top: elBCR.top - offsetParentBCR.top,
+          top: elBCR.top - offsetParentBCR.top - $window.pageYOffset,
           left: elBCR.left - offsetParentBCR.left
         };
       },
