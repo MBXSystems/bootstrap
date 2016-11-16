@@ -50,7 +50,7 @@ angular.module('ui.bootstrap.position', [])
         var offsetParentEl = parentOffsetEl(element[0]);
         if (offsetParentEl != $document[0]) {
           offsetParentBCR = this.offset(angular.element(offsetParentEl));
-          offsetParentBCR.top += offsetParentEl.clientTop - offsetParentEl.scrollTop;
+          offsetParentBCR.top += offsetParentEl.clientTop;
           offsetParentBCR.left += offsetParentEl.clientLeft - offsetParentEl.scrollLeft;
         }
 
@@ -58,7 +58,7 @@ angular.module('ui.bootstrap.position', [])
         return {
           width: boundingClientRect.width || element.prop('offsetWidth'),
           height: boundingClientRect.height || element.prop('offsetHeight'),
-          top: elBCR.top,
+          top: elBCR.top - offsetParentBCR.top,
           left: elBCR.left - offsetParentBCR.left
         };
       },
